@@ -29,7 +29,7 @@ jobs:
 
     - name: Run tests and retrieve coverage
       run: |
-        test_directory="force-app/main/default/classes"
+        test_directory="force-app/main/default/classes/test"
         class_names=$(find "$test_directory" -name "*.cls" -exec basename {} \; | sed 's/.cls//')
         class_names_csv=$(echo "$class_names" | tr '\n' ',' | sed 's/,$//')
         sfdx force:apex:test:run --classnames "$class_names_csv" --resultformat=json --codecoverage --outputdir=coverage --wait=10
