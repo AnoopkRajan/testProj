@@ -1,10 +1,11 @@
 @IsTest
-public class TestClassTest {
-    
+public class BrOutTest {
+
     @IsTest
     static void testConstructor() {
         // Instantiate the TestClass to test its constructor
-        TestClass1 testClassInstance = new TestClass1();
+        BrOut testClassInstance = new BrOut();
+
         if(testClassInstance != null){
             System.assert(true);
         }
@@ -14,5 +15,6 @@ public class TestClassTest {
 
         // You can add assertions here if there are any outcomes to validate
         // Since the class only prints debug logs, there's nothing specific to assert
-    }
+        }
+        
 }
