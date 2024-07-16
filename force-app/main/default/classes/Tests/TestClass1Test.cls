@@ -4,7 +4,7 @@ public class TestClassTest {
     @IsTest
     static void testConstructor() {
         // Instantiate the TestClass to test its constructor
-        TestClass testClassInstance = new TestClass1();
+        TestClass1 testClassInstance = new TestClass1();
         if(testClassInstance != null){
             System.assert(true);
         }
