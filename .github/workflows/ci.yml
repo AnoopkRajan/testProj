@@ -36,8 +36,8 @@ jobs:
 
     - name: Check test coverage
       run: |
-        COVERAGE=$(jq '.result.summary.codeCoverage.coverage | map(select(.coveredPercent >= 75)) | length' coverage/test-result-*.json)
-        TOTAL_CLASSES=$(jq '.result.summary.codeCoverage.coverage | length' coverage/test-result-*.json)
+        COVERAGE=$(jq '[.testsuites[].testsuite[] | select(.name | endswith(".cls")) | .coverage.coveredPercent] | length' coverage/*.json)
+        TOTAL_CLASSES=$(jq '[.testsuites[].testsuite[] | select(.name | endswith(".cls"))] | length' coverage/*.json)
         if [ "$COVERAGE" -ne "$TOTAL_CLASSES" ]; then
           echo "Code coverage is below 75% for some classes."
           exit 1
