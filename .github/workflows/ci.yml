@@ -21,11 +21,14 @@ jobs:
     - name: Authenticate with Salesforce
       run: sfdx force:auth:sfdxurl:store -f authfile.txt -d -a DevHub
 
-    - name: Create a scratch org
-      run: sfdx force:org:create -s -f config/project-scratch-def.json -d 1 -v DevHub
+    # - name: Create a scratch org
+    #   run: sfdx force:org:create -s -f config/project-scratch-def.json -d 1 -v DevHub
 
-    - name: Push source to scratch org
-      run: sfdx force:source:push
+    - name: Deploy Source to DevHub
+      run: sfdx force:source:deploy -p force-app -u DevHub
+
+    # - name: Push source to scratch org
+    #   run: sfdx force:source:push
 
     - name: Run tests and retrieve coverage
       run: |
