@@ -1,0 +1,44 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Install Salesforce CLI
+      run: npm install -g sfdx-cli
+
+    - name: Authenticate with Salesforce
+      run: sfdx force:auth:sfdxurl:store -f <path_to_auth_file> -d -a DevHub
+
+    - name: Create a scratch org
+      run: sfdx force:org:create -s -f config/project-scratch-def.json -d 1
+
+    - name: Push source to scratch org
+      run: sfdx force:source:push
+
+    - name: Run tests and retrieve coverage
+      run: sfdx force:apex:test:run --resultformat=json --codecoverage --outputdir=coverage --wait 10
+
+    - name: Check test coverage
+      run: |
+        COVERAGE=$(jq '.result.summary.codeCoverage.coverage | map(select(.coveredPercent >= 75)) | length' coverage/test-result-*.json)
+        TOTAL_CLASSES=$(jq '.result.summary.codeCoverage.coverage | length' coverage/test-result-*.json)
+        if [ "$COVERAGE" -ne "$TOTAL_CLASSES" ]; then
+          echo "Code coverage is below 75% for some classes."
+          exit 1
+        fi
+
+    - name: Delete scratch org
+      if: success()
+      run: sfdx force:org:delete -u scratchOrg -p
