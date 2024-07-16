@@ -28,7 +28,7 @@ jobs:
       run: sfdx force:source:push
 
     - name: Run tests and retrieve coverage
-      run: sfdx force:apex:test:run --testlevel RunLocalTests --resultformat=json --codecoverage --outputdir=coverage --wait 10
+      run: sfdx force:apex:test:run --testlevel=RunLocalTests --resultformat=json --codecoverage --outputdir=coverage --wait=10
 
     - name: Check test coverage
       run: |
