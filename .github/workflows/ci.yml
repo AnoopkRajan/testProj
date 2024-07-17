@@ -22,7 +22,7 @@ jobs:
       run: sfdx force:auth:sfdxurl:store -f authfile.txt -d -a DevHub
 
     - name: Create a scratch org
-      run: sfdx force:org:create -s -f config/project-scratch-def.json -d 1 -v DevHub
+      run: sfdx force:org:create -s -f config/project-scratch-def.json -a scratchOrg -d 1 -v DevHub
 
     - name: Push source to scratch org
       run: sfdx force:source:push
@@ -45,4 +45,4 @@ jobs:
 
     - name: Delete scratch org
       if: success()
-      run: sfdx force:org:delete -u scratchOrg -p
+      run: sfdx force:org:delete -o scratchOrg -p
