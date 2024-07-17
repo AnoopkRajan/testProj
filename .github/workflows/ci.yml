@@ -53,7 +53,7 @@ jobs:
 
     - name: Run PMD Scan
       run: |
-        pmd-bin-6.44.0/bin/run.sh pmd -d force-app/main/default/classes -R category/apex -f text -r pmd-report.txt
+        pmd pmd -d force-app/main/default/classes -R category/apex -f text -r pmd-report.txt
 
     - name: Check PMD Report
       run: |
