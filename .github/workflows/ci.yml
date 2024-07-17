@@ -52,7 +52,7 @@ jobs:
 
     - name: Run PMD Scan
       run: |
-        ./pmd/pmd-bin-6.44.0/bin/run.sh pmd -d force-app/main/default/classes -R rulesets/apex/quickstart.xml -f text -r pmd-report.txt
+        ./pmd/pmd-bin-6.44.0/bin/run.sh pmd -d force-app/main/default/classes -R rulesets/apex/quickstart.xml -f text -r pmd-report.txt || true
 
     - name: Check PMD Report
       run: |
