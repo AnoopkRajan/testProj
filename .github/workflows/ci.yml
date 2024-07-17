@@ -36,7 +36,7 @@ jobs:
 
     - name: Check test coverage
       run: |
-        COVERAGE=$(jq '.result.summary.totalCoverage' test-results/test-run-id.json)
+        COVERAGE=$(jq '.result.summary.testRunCoverage' test-results/test-result-id.json)
         echo "Total Code Coverage: $COVERAGE"
         if [ "$COVERAGE" -lt 75 ]; then
           echo "Code coverage is below 75%"
