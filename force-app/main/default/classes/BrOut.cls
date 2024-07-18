@@ -12,10 +12,10 @@ public with sharing class BrOut {
     /**
     * @description This method checks CRUD statements.
     */
-    public CrudCheck() {
+    public void crudCheck() {
         // Check for Create permission
         if (!Schema.sObjectType.Opportunity.isCreateable()) {
-            System.debug('No permission to create Opportunity');
+            System.debug(INFO,'No permission to create Opportunity');
             return;
         }
 
