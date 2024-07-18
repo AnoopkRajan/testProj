@@ -6,7 +6,7 @@ public with sharing class BrOut {
      * @description Constructor for the BrOut class.
      */
     public BrOut() {
-        System.debug(INFO, 'Hello World');
+        System.debug(INFO, 'Hello World?');
     }
 
     /**
