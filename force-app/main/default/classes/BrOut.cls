@@ -1,6 +1,10 @@
-// Just a branch class
+/**
+ * @description This class demonstrates a simple debug statement.
+ */
 public with sharing class BrOut {
-    // Just a test method
+    /**
+     * @description Constructor for the BrOut class.
+     */
     public BrOut() {
         System.debug(INFO, 'Hello World');
     }
