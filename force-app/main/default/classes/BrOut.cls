@@ -27,7 +27,6 @@ public with sharing class BrOut {
 
         // Insert the Opportunity
         if (Schema.sObjectType.Opportunity.isInsertable()) {
-            // Step 2: Insert the Opportunity
             insert opp;
         } else {
             return;
@@ -44,7 +43,7 @@ public with sharing class BrOut {
             return;
         }
 
-        // Delete the fetched Opportunity
+        // Delete the Opportunity
         if (Schema.sObjectType.Opportunity.isDeletable()) {
             delete opp;
         } else {
