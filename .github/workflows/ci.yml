@@ -64,7 +64,7 @@ jobs:
     - name: Run PMD Scan
       run: |
         mkdir -p pmd-analysis-cache
-        ./pmd/pmd-bin-6.44.0/bin/run.sh pmd -d force-app/main/default/classes -R rulesets/apex/quickstart.xml -f text -r pmd-report.txt -cache pmd-analysis-cache || true
+        ./pmd/pmd-bin-6.44.0/bin/run.sh pmd -d force-app/main/default/classes -R rulesets/apex/quickstart.xml -f text -r pmd-report.txt -cache pmd-analysis-cache/pmd-cache.dat || true
         echo "PMD Analysis Completed"
 
     - name: Check PMD Report
