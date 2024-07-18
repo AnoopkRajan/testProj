@@ -1,6 +1,8 @@
+// Just a branch class
 public with sharing class BrOut {
+    // Just a test method
     public BrOut() {
-        System.debug('Hello World');
+        System.debug(INFO, 'Hello World');
     }
 
     // public CrudCheck() {
