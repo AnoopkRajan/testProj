@@ -56,14 +56,17 @@ jobs:
     - name: Run PMD Scan
       run: |
         ./pmd/pmd-bin-6.44.0/bin/run.sh pmd -d force-app/main/default/classes -R rulesets/apex/quickstart.xml -f text -r pmd-report.txt || true
+        echo "PMD Analysis Completed"
 
     - name: Check PMD Report
       run: |
-        if grep -q "problem found" pmd-report.txt; then
+        if [ -s pmd-report.txt ]; then
           echo "PMD found issues in the code"
           cat pmd-report.txt
           exit 1
-        fi
+        else
+          echo "No PMD issues found"
+        fi  
 
     # - name: Delete scratch org
     #   if: success()
