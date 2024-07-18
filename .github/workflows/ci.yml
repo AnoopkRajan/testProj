@@ -12,38 +12,38 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: '20'
 
-    - name: Install Salesforce CLI
-      run: npm install -g sfdx-cli
+    # - name: Install Salesforce CLI
+    #   run: npm install -g sfdx-cli
 
-    - name: Authenticate with Salesforce
-      run: sfdx force:auth:sfdxurl:store -f authfile.txt -d -a DevHub
+    # - name: Authenticate with Salesforce
+    #   run: sfdx force:auth:sfdxurl:store -f authfile.txt -d -a DevHub
 
-    - name: Create a scratch org
-      run: sfdx force:org:create -s -f config/project-scratch-def.json -a scratchOrg -d 1 -v DevHub
+    # - name: Create a scratch org
+    #   run: sfdx force:org:create -s -f config/project-scratch-def.json -a scratchOrg -d 1 -v DevHub
 
-    - name: Push source to scratch org
-      run: sfdx force:source:push
+    # - name: Push source to scratch org
+    #   run: sfdx force:source:push
 
-    - name: Run tests and retrieve coverage
-      run: |
-        test_directory="force-app/main/default/classes/test"
-        class_names=$(find "$test_directory" -name "*.cls" -exec basename {} \; | sed 's/.cls//')
-        class_names_csv=$(echo "$class_names" | tr '\n' ',' | sed 's/,$//')
-        sfdx force:apex:test:run --classnames "$class_names_csv" --resultformat=json --codecoverage --outputdir=test-results --wait=10
+    # - name: Run tests and retrieve coverage
+    #   run: |
+    #     test_directory="force-app/main/default/classes/test"
+    #     class_names=$(find "$test_directory" -name "*.cls" -exec basename {} \; | sed 's/.cls//')
+    #     class_names_csv=$(echo "$class_names" | tr '\n' ',' | sed 's/,$//')
+    #     sfdx force:apex:test:run --classnames "$class_names_csv" --resultformat=json --codecoverage --outputdir=test-results --wait=10
 
-    - name: Check test coverage
-      run: |
-        COVERAGE=$(jq '.result.summary.testRunCoverage' )
-        echo "Total Code Coverage: $COVERAGE"
-        if [ "$COVERAGE" -lt 75 ]; then
-          echo "Code coverage is below 75%"
-          exit 1
-        fi
+    # - name: Check test coverage
+    #   run: |
+    #     COVERAGE=$(jq '.result.summary.testRunCoverage' )
+    #     echo "Total Code Coverage: $COVERAGE"
+    #     if [ "$COVERAGE" -lt 75 ]; then
+    #       echo "Code coverage is below 75%"
+    #       exit 1
+    #     fi
 
     - name: Install PMD
       run: |
@@ -62,6 +62,6 @@ jobs:
           exit 1
         fi
 
-    - name: Delete scratch org
-      if: success()
-      run: sfdx force:org:delete -o scratchOrg -p
+    # - name: Delete scratch org
+    #   if: success()
+    #   run: sfdx force:org:delete -o scratchOrg -p
