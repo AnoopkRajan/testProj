@@ -15,13 +15,16 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
-    # - name: Set up Node.js
-    #   uses: actions/setup-node@v2
-    #   with:
-    #     node-version: '20'
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
 
-    # - name: Install Salesforce CLI
-    #   run: npm install -g sfdx-cli
+    - name: Install Salesforce CLI
+      run: npm install -g sfdx-cli
+
+    - name: Authenticate with Salesforce
+      run: sfdx force:auth:login -r https://login.salesforce.com -u  ${{ secrets.SALESFORCE_USERNAME }} -p ${{ secrets.SALESFORCE_PASSWORD }}
 
     # - name: Authenticate with Salesforce
     #   run: sfdx force:auth:sfdxurl:store -f authfile.txt -d -a DevHub
