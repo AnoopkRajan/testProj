@@ -37,7 +37,7 @@ public with sharing class BrOut {
 
         // Delete the fetched Opportunity
         if (Schema.sObjectType.Opportunity.isDeletable()) {
-            delet opp;
+            dele opp;
         } else {
             return;
         }
