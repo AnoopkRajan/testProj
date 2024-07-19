@@ -1,0 +1,19 @@
+[
+  [
+    {
+      "apexClassOrTriggerName": "FirstClass",
+      "apexClassOrTriggerId": "01pdM0000052NYlQAM",
+      "apexTestClassId": "01pdM0000052NYmQAM",
+      "apexTestMethodName": "testConstructor",
+      "numLinesCovered": 1,
+      "numLinesUncovered": 0,
+      "percentage": "100%",
+      "coverage": {
+        "coveredLines": [
+          2
+        ],
+        "uncoveredLines": []
+      }
+    }
+  ]
+]

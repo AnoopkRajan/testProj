@@ -1,0 +1,81 @@
+{
+  "summary": {
+    "outcome": "Passed",
+    "testsRan": 1,
+    "passing": 1,
+    "failing": 0,
+    "skipped": 0,
+    "passRate": "100%",
+    "failRate": "0%",
+    "testStartTime": "Wed Jul 17 2024 9:37:40 am",
+    "testExecutionTime": "20 ms",
+    "testTotalTime": "20 ms",
+    "commandTime": "140 ms",
+    "hostname": "https://curious-moose-r0lqx5-dev-ed.trailblaze.my.salesforce.com",
+    "orgId": "00DdM000006KsglUAC",
+    "username": "anoopkrajan7@curious-moose-r0lqx5.com",
+    "testRunId": "707dM000003Zs6A",
+    "userId": "005dM0000040gM1QAI",
+    "testRunCoverage": "100%",
+    "orgWideCoverage": "94%"
+  },
+  "tests": [
+    {
+      "Id": "07MdM000001xg7cUAA",
+      "QueueItemId": "709dM000002WQgDQAW",
+      "StackTrace": null,
+      "Message": null,
+      "AsyncApexJobId": "707dM000003Zs6AQAS",
+      "MethodName": "testConstructor",
+      "Outcome": "Pass",
+      "ApexClass": {
+        "Id": "01pdM0000052NYmQAM",
+        "Name": "FirstClassTest",
+        "NamespacePrefix": null
+      },
+      "RunTime": 20,
+      "FullName": "FirstClassTest.testConstructor"
+    }
+  ],
+  "coverage": {
+    "coverage": [
+      {
+        "id": "01pdM0000052NYlQAM",
+        "name": "FirstClass",
+        "totalLines": 1,
+        "lines": {
+          "2": 1
+        },
+        "totalCovered": 1,
+        "coveredPercent": 100
+      }
+    ],
+    "records": [
+      {
+        "ApexTestClass": {
+          "Id": "07MdM000001xg7cUAA",
+          "Name": "FirstClassTest"
+        },
+        "Coverage": {
+          "coveredLines": [
+            2
+          ],
+          "uncoveredLines": []
+        },
+        "TestMethodName": "testConstructor",
+        "NumLinesCovered": 1,
+        "ApexClassOrTrigger": {
+          "Id": "01pdM0000052NYlQAM",
+          "Name": "FirstClass"
+        },
+        "NumLinesUncovered": 0
+      }
+    ],
+    "summary": {
+      "totalLines": 1,
+      "coveredLines": 1,
+      "orgWideCoverage": "94%",
+      "testRunCoverage": "100%"
+    }
+  }
+}
