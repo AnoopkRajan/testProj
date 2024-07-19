@@ -24,12 +24,12 @@ public with sharing class BrOut {
         if (CheckPermission.hasOppCreatePermission()) {
             try {
                 insert opp;
-                System.debug('Opportunity created successfully.');
+                System.debug(INFO,'Opportunity created successfully.');
             } catch (DmlException e) {
-                System.debug('Error creating Opportunity: ' + e.getMessage());
+                System.debug(ERROR,'Error creating Opportunity: ' + e.getMessage());
             }
         } else {
-            System.debug('No Create Access for Opportunity.');
+            System.debug(INFO,'No Create Access for Opportunity.');
         }
 
         // Write SOQL to fetch an Opportunity with the name "Edge SLA"
@@ -37,12 +37,12 @@ public with sharing class BrOut {
         if (CheckPermission.hasOppAccessPermission()) {
             try {
                 edgeSLAOpp = [SELECT Id, Name, StageName, CloseDate FROM Opportunity WHERE Name = 'Edge SLA' LIMIT 1];
-                System.debug('Opportunity read successfully.');
+                System.debug(INFO,'Opportunity read successfully.');
             } catch (QueryException e) {
-                System.debug('Error reading Opportunity: ' + e.getMessage());
+                System.debug(ERROR,'Error reading Opportunity: ' + e.getMessage());
             }
         } else {
-            System.debug('No Read Access for Opportunity.');
+            System.debug(ERROR,'No Read Access for Opportunity.');
         }
 
         // Update the fetched Opportunity
@@ -50,24 +50,24 @@ public with sharing class BrOut {
         if (CheckPermission.hasOppUpdatePermission()){
             try {
                 update edgeSLAOpp;
-                System.debug('Opportunity updated successfully.');
+                System.debug(INFO,'Opportunity updated successfully.');
             } catch (DmlException e) {
-                System.debug('Error updating Opportunity: ' + e.getMessage());
+                System.debug(ERROR,'Error updating Opportunity: ' + e.getMessage());
             }
         } else {
-            System.debug('No Update Access for Opportunity.');
+            System.debug(ERROR,'No Update Access for Opportunity.');
         }
 
         // Delete the Opportunity
         if (CheckPermission.hasOppDeletePermission()) {
             try{
                 delete opp;
-                System.debug('Opportunity deleted successfully.');
+                System.debug(INFO,'Opportunity deleted successfully.');
             } catch (DmlException e) {
-                System.debug('Error deleting Opportunity: ' + e.getMessage());
+                System.debug(ERROR,'Error deleting Opportunity: ' + e.getMessage());
             }
         } else {
-            System.debug('No Delete Access for Opportunity.');
+            System.debug(INFO,'No Delete Access for Opportunity.');
         }
     }
 }
