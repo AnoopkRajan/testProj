@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2024-07-17T04:07:40.000Z" hostname="https://curious-moose-r0lqx5-dev-ed.trailblaze.my.salesforce.com" tests="1" failures="0"  errors="0"  time="0.02">
+        <properties>
+            <property name="outcome" value="Successful"/>
+            <property name="testsRan" value="1"/>
+            <property name="passing" value="1"/>
+            <property name="failing" value="0"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="100%"/>
+            <property name="failRate" value="0%"/>
+            <property name="testStartTime" value="Wed Jul 17 2024 9:37:40 am"/>
+            <property name="testExecutionTime" value="0.02 s"/>
+            <property name="testTotalTime" value="0.02 s"/>
+            <property name="commandTime" value="0.14 s"/>
+            <property name="hostname" value="https://curious-moose-r0lqx5-dev-ed.trailblaze.my.salesforce.com"/>
+            <property name="orgId" value="00DdM000006KsglUAC"/>
+            <property name="username" value="anoopkrajan7@curious-moose-r0lqx5.com"/>
+            <property name="testRunId" value="707dM000003Zs6A"/>
+            <property name="userId" value="005dM0000040gM1QAI"/>
+            <property name="coveredLines" value="1"/>
+            <property name="testRunCoverage" value="100%"/>
+            <property name="orgWideCoverage" value="94%"/>
+        </properties>
+        <testcase name="testConstructor" classname="FirstClassTest" time="0.02">
+        </testcase>
+    </testsuite>
+</testsuites>
